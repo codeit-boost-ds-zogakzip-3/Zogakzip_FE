@@ -8,7 +8,6 @@
 
 ## ⚙️개발 환경
 - Front : JavaScript, React + Vite, Styled-components, React Router, Axios
-- Back-end : 
 - 버전 및 이슈관리 : Github, Github Issues, Github Project
 - 협업 툴 : Discord, Notion
 - 서비스 배포 환경 : AWS S3
