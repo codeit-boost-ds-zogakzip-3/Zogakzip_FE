@@ -1,8 +1,8 @@
-import * as C from "../styles/CardStyle";
-import img1 from "../assets/img1.png";
-import flower from "../assets/flower.svg";
-import comment from "../assets/comment.svg";
-import color from "../util/Color";
+import * as C from "../../styles/components/CardStyle";
+import img1 from "../../assets/img1.png";
+import flower from "../../assets/flower.svg";
+import comment from "../../assets/comment.svg";
+import color from "../../util/Color";
 
 const MemoryCard = ({ memoryData, isPublic }) => {
   return (

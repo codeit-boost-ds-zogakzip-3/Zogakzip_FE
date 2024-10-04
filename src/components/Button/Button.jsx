@@ -1,4 +1,4 @@
-import * as B from "../styles/ButtonStyle";
+import * as B from "../../styles/components/ButtonStyle";
 
 const Button = ({ text, onClick, style }) => {
   return (

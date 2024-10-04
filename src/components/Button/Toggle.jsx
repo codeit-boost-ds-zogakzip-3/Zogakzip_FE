@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as T from "../styles/ToggleStyle";
+import * as T from "../../styles/components/ToggleStyle";
 
 const Toggle = () => {
   const [isPublic, setIsPublic] = useState(false);

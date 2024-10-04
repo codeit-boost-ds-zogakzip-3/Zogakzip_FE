@@ -1,6 +1,6 @@
-import * as P from "../styles/PaginationStyle";
-import Left from "../assets/arrowLeft.svg";
-import Right from "../assets/arrowRight.svg";
+import * as P from "../../styles/components/PaginationStyle";
+import Left from "../../assets/arrowLeft.svg";
+import Right from "../../assets/arrowRight.svg";
 import { useEffect, useState } from "react";
 
 const Pagination = ({ currentPage, totalPage, setPage }) => {
