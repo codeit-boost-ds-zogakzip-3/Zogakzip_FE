@@ -53,3 +53,13 @@ export const MoreBtn = styled.div`
   height: 60px;
   line-height: 60px;
 `;
+
+export const Badge = styled.div`
+  border-radius: 50px;
+  background-color: ${color.gray100};
+  width: max-content;
+  padding: 16px 30px;
+  text-align: center;
+  font-size: 16px;
+  color: ${color.black};
+`;
