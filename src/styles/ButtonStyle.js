@@ -23,3 +23,21 @@ export const Tab = styled.div`
   padding: 13px 20px;
   cursor: pointer;
 `;
+
+export const LikeBtn = styled.div`
+  border-radius: 6px;
+  background-color: ${color.gray50};
+  border: 1px solid ${color.black};
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 16px;
+  color: ${color.black};
+  width: 188px;
+  height: 52px;
+  img {
+    height: 22px;
+  }
+`;
