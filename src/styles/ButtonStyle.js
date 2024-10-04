@@ -15,9 +15,10 @@ export const Btn = styled.div`
 
 export const Tab = styled.div`
   width: max-content;
-  background-color: ${(props) => (props.isPublic ? color.black : color.gray50)};
+  background-color: ${(props) =>
+    props["data-ispublic"] ? color.black : color.gray50};
   border-radius: 22.5px;
-  color: ${(props) => (props.isPublic ? color.white : color.black)};
+  color: ${(props) => (props["data-ispublic"] ? color.white : color.black)};
   text-align: center;
   font-size: 14px;
   padding: 13px 20px;
@@ -37,6 +38,7 @@ export const LikeBtn = styled.div`
   color: ${color.black};
   width: 188px;
   height: 52px;
+  cursor: pointer;
   img {
     height: 22px;
   }
@@ -52,6 +54,7 @@ export const MoreBtn = styled.div`
   width: 100%;
   height: 60px;
   line-height: 60px;
+  cursor: pointer;
 `;
 
 export const Badge = styled.div`

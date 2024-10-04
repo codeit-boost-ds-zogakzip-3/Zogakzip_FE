@@ -1,5 +1,14 @@
+import { Routes, Route } from "react-router-dom";
+import Group from "./pages/Group";
+
 function App() {
-  return <>조각집</>;
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Group />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
