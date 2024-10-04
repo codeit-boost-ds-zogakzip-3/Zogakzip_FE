@@ -1,4 +1,4 @@
-import * as D from "../styles/DropdownStyle";
+import * as D from "../../styles/components/DropdownStyle";
 import { useState } from "react";
 
 const Dropdown = () => {

@@ -1,5 +1,5 @@
-import * as B from "../styles/ButtonStyle";
-import flower from "../assets/flower.svg";
+import * as B from "../../styles/components/ButtonStyle";
+import flower from "../../assets/flower.svg";
 
 const LikeBtn = ({ onClick }) => {
   return (

@@ -1,17 +1,17 @@
 import Header from "../components/Header";
-import Button from "../components/Button";
-import Tab from "../components/Tab";
+import Button from "../components/Button/Button";
+import Tab from "../components/Button/Tab";
 import Search from "../components/Search";
-import Dropdown from "../components/Dropdown";
-import GroupCard from "../components/GroupCard";
+import Dropdown from "../components/Button/Dropdown";
+import GroupCard from "../components/Card/GroupCard";
 import Badge from "../components/Badge";
-import Toggle from "../components/Toggle";
-import LikeBtn from "../components/LikeBtn";
-import Pagination from "../components/Pagination";
-import MoreBtn from "../components/MoreBtn";
-import MemoryCard from "../components/MemoryCard";
+import Toggle from "../components/Button/Toggle";
+import LikeBtn from "../components/Button/LikeBtn";
+import Pagination from "../components/Button/Pagination";
+import MoreBtn from "../components/Button/MoreBtn";
+import MemoryCard from "../components/Card/MemoryCard";
 import { useState } from "react";
-import * as G from "./GroupStyle";
+import * as G from "../styles/pages/GroupStyle";
 
 function Group() {
   const [isPublic, setIsPublic] = useState(true); // 공개 여부

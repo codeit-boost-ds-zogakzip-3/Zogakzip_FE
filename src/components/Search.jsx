@@ -1,4 +1,4 @@
-import * as S from "../styles/SearchStyle";
+import * as S from "../styles/components/SearchStyle";
 import search from "../assets/search.svg";
 
 const Search = ({ value, onChange, text }) => {
