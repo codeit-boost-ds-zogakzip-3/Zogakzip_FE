@@ -41,3 +41,15 @@ export const LikeBtn = styled.div`
     height: 22px;
   }
 `;
+
+export const MoreBtn = styled.div`
+  border-radius: 6px;
+  background-color: ${color.gray50};
+  border: 1px solid ${color.black};
+  font-size: 14px;
+  color: ${color.black};
+  text-align: center;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+`;
