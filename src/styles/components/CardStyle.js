@@ -4,9 +4,9 @@ import color from "../../util/Color";
 export const Card = styled.div`
   display: flex;
   flex-direction: column;
-  width: 335px;
   background-color: ${color.gray50};
   border-radius: 12px;
+  border: 1px solid ${color.gray200};
   padding: 20px;
   font-size: 14px;
   text-align: left;
@@ -16,8 +16,9 @@ export const Card = styled.div`
 `;
 
 export const CardImg = styled.img`
-  width: 335px;
-  height: 335px;
+  width: 100%;
+  min-width: 202px;
+  aspect-ratio: auto 1/1;
   border-radius: 6px;
   object-fit: cover;
 `;
@@ -26,13 +27,15 @@ export const NonImg = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 335px;
-  height: 335px;
+  width: 100%;
+  min-width: 202px;
+  aspect-ratio: auto 1/1;
   border-radius: 6px;
   background-color: #efede4;
   img {
     width: 36%;
     height: 36%;
+    object-fit: cover;
   }
 `;
 
@@ -47,14 +50,16 @@ export const Title = styled.div`
   flex-direction: column;
   gap: 10px;
   font-size: 16px;
+  overflow: hidden;
   h4 {
     display: block;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    fontweight: bold;
+    font-weight: bold;
     font-size: 16px;
     margin: 0;
+    max-width: 253px;
   }
   p {
     font-size: 14px;
