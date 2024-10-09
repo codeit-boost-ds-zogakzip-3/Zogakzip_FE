@@ -2,14 +2,15 @@ import styled from "styled-components";
 import color from "../../util/Color";
 
 export const Btn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 200px;
   height: 45px;
   background-color: ${color.black};
   border-radius: 6px;
   color: ${color.gray50};
-  text-align: center;
   font-size: 14px;
-  line-height: 45px;
   cursor: pointer;
 `;
 
@@ -55,6 +56,7 @@ export const MoreBtn = styled.div`
   height: 60px;
   line-height: 60px;
   cursor: pointer;
+  margin: 60px auto 120px;
 `;
 
 export const Badge = styled.div`
