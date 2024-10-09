@@ -29,7 +29,6 @@ export const DropdownList = styled.ul`
   background-color: ${color.gray50};
   border: 1px solid ${color.black};
   border-radius: 6px;
-  max-height: 124px;
   overflow-y: auto;
 `;
 
