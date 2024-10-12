@@ -1,9 +1,13 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 
-export default function TagInput() {
+export default function TagInput({ onChange }) {
   const [tag, setTag] = useState("");
   const [tags, setTags] = useState([]);
+
+  useEffect(() => {
+    onChange(tags);
+  }, [tags]);
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter" && tag.trim() !== "") {
@@ -18,6 +22,7 @@ export default function TagInput() {
     <Wrapper>
       <Text>태그</Text>
       <Input
+        name="tags"
         placeholder="태그 입력 후 Enter"
         value={tag}
         onChange={(e) => setTag(e.target.value)}
@@ -50,9 +55,9 @@ const Text = styled.div`
 const Input = styled.input`
   border: 1px solid #dddddd;
   border-radius: 6px;
-  width: 400px;
+  width: 360px;
   font-size: 12px;
-  padding: 12px;
+  padding: 13px 20px;
   background-color: #fafafa;
   margin-top: 10px;
 
