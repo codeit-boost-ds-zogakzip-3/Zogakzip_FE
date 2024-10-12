@@ -1,10 +1,10 @@
 import * as B from "../../styles/components/ButtonStyle";
 
-const LongBtn = ({ text, onClick }) => {
+const LongBtn = ({ text, onClick, style }) => {
   return (
-    <B.Btn style={{ height: "50px", width: "400px" }} onClick={onClick}>
+    <B.LongBtn style={style} onClick={onClick}>
       {text}
-    </B.Btn>
+    </B.LongBtn>
   );
 };
 
