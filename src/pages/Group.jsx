@@ -6,6 +6,7 @@ import Search from "../components/Search";
 import Dropdown from "../components/Button/Dropdown";
 import GroupCard from "../components/Card/GroupCard";
 import MoreBtn from "../components/Button/MoreBtn";
+import Empty from "../components/Card/Empty";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getGroupList } from "../util/api";
@@ -17,21 +18,31 @@ function Group() {
   const [sort, setSort] = useState("latest"); // 정렬
   const [groupList, setGroupList] = useState([]);
   const [searchWord, setSearchWord] = useState(""); // 검색어
+  const params = {
+    page: 1,
+    pageSize: 12,
+    sortBy: sort,
+    keyword: searchWord,
+    isPublic: isPublic,
+  };
 
   useEffect(() => {
-    const params = {
-      page: 1,
-      pageSize: 12,
-      sortBy: sort,
-      keyword: searchWord,
-      isPublic: isPublic,
-    };
-    const data = getGroupList(params);
-    data.then((el) => setGroupList(el));
+    params.pageSize = 12;
+    getData();
   }, [isPublic, sort, searchWord]);
 
   // 그룹 만들기 버튼 클릭 시 그룹 만들기 페이지로 이동
   //const handleClicked = () => navigate(~~~~~);
+
+  const handleMore = () => {
+    params.pageSize += 12;
+    getData();
+  };
+
+  const getData = () => {
+    const data = getGroupList(params);
+    data.then((el) => setGroupList(el));
+  };
 
   return (
     <G.Container>
@@ -62,11 +73,11 @@ function Group() {
                 <GroupCard key={group.id} groupData={group} />
               ))}
             </G.List>
-            <MoreBtn />
+            <MoreBtn onClick={handleMore} />
           </>
         ) : (
           <G.NoData>
-            <div>no group</div>
+            <Empty type={"group"} />
             <LongBtn
               text={"그룹 만들기"}
               //onClick={handleClicked}
