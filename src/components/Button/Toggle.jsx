@@ -1,9 +1,7 @@
 import { useState } from "react";
 import * as T from "../../styles/components/ToggleStyle";
 
-const Toggle = () => {
-  const [isPublic, setIsPublic] = useState(false);
-
+const Toggle = ({ isPublic, setIsPublic }) => {
   return (
     <T.Toggle data-ispublic={isPublic} onClick={() => setIsPublic(!isPublic)}>
       <T.ToggleButton data-ispublic={isPublic}></T.ToggleButton>

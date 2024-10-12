@@ -2,7 +2,7 @@ import styled from "styled-components";
 import color from "../../util/Color";
 
 export const Container = styled.div`
-  min-width: 740px;
+  min-width: 905px;
   min-height: 100vh;
   position: relative;
   background-color: ${color.gray50};

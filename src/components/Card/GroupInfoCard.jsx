@@ -1,8 +1,16 @@
 import React, { useRef, useState } from "react";
+import { groupLike } from "../../util/api";
+import { useParams } from "react-router-dom";
+import { Dday } from "./GroupCard";
 import styled from "styled-components";
+import * as C from "../../styles/components/CardStyle";
+import flower from "../../assets/flower.svg";
 import img2 from "../../assets/img2.png";
 import Badge from "../Badge";
 import LikeBtn from "../Button/LikeBtn";
+import GroupDeleteModal from "../Modal/GroupDeleteModal";
+import GroupUpdateModal from "../Modal/GroupUpdateModal";
+import ResultModal from "../Modal/ResultModal";
 import arrowLeft from "../../assets/arrowLeft.svg";
 import arrowRight from "../../assets/arrowRight.svg";
 
@@ -25,6 +33,11 @@ import arrowRight from "../../assets/arrowRight.svg";
 
 export default function GroupInfoCard({ groupInfoData }) {
   const badgeSectionRef = useRef(null);
+  const { GroupId } = useParams();
+  const [modal, setModal] = useState("");
+  const [resultModal, setResultModal] = useState();
+  const [groupData, setGroupData] = useState(groupInfoData);
+  const diffDays = Dday(groupData.createdAt);
 
   const scrollLeft = () => {
     if (badgeSectionRef.current) {
@@ -43,56 +56,85 @@ export default function GroupInfoCard({ groupInfoData }) {
     }
   };
 
+  const handleLiked = () => {
+    const data = groupLike(GroupId);
+    data.then((el) => setGroupData({ ...groupData, likeCount: el }));
+  };
+
   return (
     <Wrapper>
       <Container>
         <ImageContainer>
-          <Image src={groupInfoData.imageUrl} />
+          {groupData.imageUrl ? (
+            <Image src={groupData.imageUrl} />
+          ) : (
+            <C.NonImg style={{ width: "250px" }}>
+              <img src={flower} alt="이미지없음" />
+            </C.NonImg>
+          )}
         </ImageContainer>
         <Content>
           <Header>
             <LabelContainer>
-              <ColorLabel>D+225</ColorLabel>
+              <ColorLabel>{`D+${diffDays}`}</ColorLabel>
               <Label>|</Label>
-              {groupInfoData.isPublic === true ? (
+              {groupData.isPublic === true ? (
                 <Label>공개</Label>
               ) : (
                 <Label>비공개</Label>
               )}
             </LabelContainer>
             <ActionButtonsTop>
-              <EditButton>그룹 정보 수정하기</EditButton>
-              <DeleteButton>그룹 삭제하기</DeleteButton>
+              <EditButton onClick={() => setModal("update")}>
+                그룹 정보 수정하기
+              </EditButton>
+              <DeleteButton onClick={() => setModal("delete")}>
+                그룹 삭제하기
+              </DeleteButton>
             </ActionButtonsTop>
           </Header>
           <TitleContainer>
-            <Title>{groupInfoData.name}</Title>
+            <Title>{groupData.name}</Title>
             <Stats>
-              <Stat>추억 {groupInfoData.postCount}</Stat>
+              <Stat>추억 {groupData.postCount}</Stat>
               <Stat>|</Stat>
-              <Stat>그룹 공감 {groupInfoData.likeCount}</Stat>
+              <Stat>그룹 공감 {groupData.likeCount}</Stat>
             </Stats>
           </TitleContainer>
-          <Description>{groupInfoData.introduction}</Description>
+          <Description>{groupData.introduction}</Description>
           <BottomWrapper>
             <BadgeTitle>획득 뱃지</BadgeTitle>
             <BottomContainer>
               <BadgeContainer>
                 <ArrowButton onClick={scrollLeft} src={arrowLeft} />
                 <BadgeSection ref={badgeSectionRef}>
-                  {groupInfoData.badges?.map((badge, idx) => (
+                  {groupData.badges?.map((badge, idx) => (
                     <Badge key={idx} text={badge} />
                   ))}
                 </BadgeSection>
                 <ArrowButton onClick={scrollRight} src={arrowRight} />
               </BadgeContainer>
               <ActionButtonsBottom>
-                <LikeBtn />
+                <LikeBtn onClick={handleLiked} />
               </ActionButtonsBottom>
             </BottomContainer>
           </BottomWrapper>
         </Content>
       </Container>
+      {modal === "update" && (
+        <GroupUpdateModal
+          setModal={setModal}
+          groupData={groupData}
+          setGroupData={setGroupData}
+          setResultModal={setResultModal}
+        />
+      )}
+      {modal === "delete" && (
+        <GroupDeleteModal setModal={setModal} setResultModal={setResultModal} />
+      )}
+      {resultModal && (
+        <ResultModal type={resultModal} setResultModal={setResultModal} />
+      )}
     </Wrapper>
   );
 }
@@ -280,7 +322,8 @@ const BadgeSection = styled.div`
   scroll-behavior: smooth;
   white-space: nowrap;
   overflow: hidden;
-  width: 800px;
+  width: 100px;
+  flex: 1;
   white-space: nowrap;
 `;
 

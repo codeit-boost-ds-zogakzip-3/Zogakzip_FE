@@ -82,3 +82,18 @@ export const CountTitle = styled.div`
 export const ImgIcon = styled.img`
   height: 18px;
 `;
+
+export const EmptyImg = styled.img`
+  height: 100px;
+`;
+
+export const EmptyTitle = styled.div`
+  font-size: 18px;
+  color: ${color.gray500};
+  margin-top: 20px;
+`;
+
+export const EmptySubTitle = styled.div`
+  font-size: 14px;
+  color: ${color.gray400};
+`;

@@ -14,6 +14,19 @@ export const Btn = styled.div`
   cursor: pointer;
 `;
 
+export const LongBtn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  min-height: 50px;
+  background-color: ${color.black};
+  border-radius: 6px;
+  color: ${color.gray50};
+  font-size: 14px;
+  cursor: pointer;
+`;
+
 export const Tab = styled.div`
   width: max-content;
   background-color: ${(props) =>
