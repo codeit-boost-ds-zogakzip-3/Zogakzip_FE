@@ -4,14 +4,19 @@ import flower from "../../assets/flower.svg";
 import color from "../../util/Color";
 import { useNavigate } from "react-router-dom";
 
+export const Dday = (day) => {
+  const today = new Date();
+  const createDate = new Date(day);
+  const diffTime = today - createDate; // 밀리초 단위 차이 계산
+  return Math.ceil(diffTime / (1000 * 60 * 60 * 24)) - 1; // 밀리초를 일수로 변환
+};
+
 const GroupCard = ({ groupData }) => {
   const navigate = useNavigate();
-  const today = new Date();
-  const createDate = new Date(groupData.createdAt);
-  const diffTime = today - createDate; // 밀리초 단위 차이 계산
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) - 1; // 밀리초를 일수로 변환
+  const diffDays = Dday(groupData.createdAt);
 
-  const handleClicked = () => navigate(`/${groupData.id}`);
+  const handleClicked = () =>
+    navigate(`/${groupData.id}`, { state: groupData.isPublic });
 
   return (
     <C.Card onClick={handleClicked}>

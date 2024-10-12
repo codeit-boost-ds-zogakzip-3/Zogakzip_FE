@@ -8,6 +8,7 @@ import MoreBtn from "../components/Button/MoreBtn";
 import MemoryCard from "../components/Card/MemoryCard";
 import GroupInfoCard from "../components/Card/GroupInfoCard";
 import PostCreateModal from "../components/Modal/PostCreateModal";
+import ResultModal from "../components/Modal/ResultModal";
 import GroupAccess from "./GroupAccess";
 import Empty from "../components/Card/Empty";
 import { useState, useEffect } from "react";
@@ -63,6 +64,9 @@ function GroupDetail() {
 
   return (
     <G.Container>
+      {resultModal && (
+        <ResultModal type={resultModal} setResultModal={setResultModal} />
+      )}
       <Header />
       {postCreateOpen ? (
         <PostCreateModal

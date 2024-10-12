@@ -12,6 +12,7 @@ export async function getGroupList(params) {
     }
   } catch (error) {
     console.error(error);
+    return error;
   }
 }
 
@@ -23,6 +24,7 @@ export async function getPostList(groupId, params) {
     }
   } catch (error) {
     console.error(error);
+    return error;
   }
 }
 
@@ -34,6 +36,7 @@ export async function getGroupDetail(groupId) {
     }
   } catch (error) {
     console.error(error);
+    return error;
   }
 }
 
@@ -45,6 +48,7 @@ export async function groupLike(groupId) {
     }
   } catch (error) {
     console.error(error);
+    return error;
   }
 }
 
@@ -80,6 +84,7 @@ export async function createPost(groupId, payload) {
     }
   } catch (error) {
     console.error(error);
+    return error;
   }
 }
 
@@ -93,5 +98,6 @@ export async function groupPassword(groupId, password) {
     }
   } catch (error) {
     console.error(error);
+    return error;
   }
 }

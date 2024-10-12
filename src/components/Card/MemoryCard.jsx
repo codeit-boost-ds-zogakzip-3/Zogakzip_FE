@@ -50,7 +50,8 @@ const MemoryCard = ({ postData }) => {
             {postData.likeCount}
           </C.Row>
           <C.Row style={{ gap: "5px" }}>
-            <C.ImgIcon src={comment} alt="댓글" />8
+            <C.ImgIcon src={comment} alt="댓글" />
+            {postData.commentCount}
           </C.Row>
         </C.Row>
       </C.Row>
