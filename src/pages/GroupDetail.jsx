@@ -59,7 +59,17 @@ function GroupDetail() {
   };
 
   if (!isGroupPublic) {
-    return <GroupAccess setIsGroupPublic={setIsGroupPublic} />;
+    return (
+      <>
+        <GroupAccess
+          setIsGroupPublic={setIsGroupPublic}
+          setResultModal={setResultModal}
+        />
+        {resultModal && (
+          <ResultModal type={resultModal} setResultModal={setResultModal} />
+        )}
+      </>
+    );
   }
 
   return (

@@ -15,6 +15,7 @@ function ResultModal({ type, setResultModal }) {
       "그룹 삭제에 성공했습니다. 그룹 목록 페이지로 이동합니다.",
     ],
     groupDeleteFail: ["그룹 삭제 실패", "그룹 삭제에 실패했습니다."],
+    groupAccessFail: ["비공개 그룹 접근 실패", "비밀번호가 일치하지 않습니다."],
   };
 
   const handleClicked = () => {
